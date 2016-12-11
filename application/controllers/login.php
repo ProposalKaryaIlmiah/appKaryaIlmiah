@@ -5,15 +5,13 @@ class Login extends CI_Controller {
     public function __construct()
     {
     	parent::__construct();
-		//$this->load->model('M_website', 'WEB', TRUE);
 		$this->load->model('M_loginmhs', 'MHS', TRUE);
     }
 
-		
 	public function index()
 	{
         if ($this->session->userdata('logged_in') == TRUE){       
-            redirect('home/','refresh');
+            redirect('login/','refresh');
         } else {     
 		//$this->load->vars($data);
 		$this->load->view('mahasiswa/login');
@@ -22,7 +20,7 @@ class Login extends CI_Controller {
 	
 	public function ceklogin()
 	{
-		$npm		= validasi_sql($this->input->post('npm'));
+		$npm			= validasi_sql($this->input->post('npm'));
 		$password		= validasi_sql($this->input->post('password'));
 		$do				= validasi_sql($this->input->post('masuk'));
 		
@@ -33,8 +31,8 @@ class Login extends CI_Controller {
 		if ($do && $this->MHS->cek_login($where_login) === TRUE){
 			redirect("home/");
 		} else {
-			$this->session->set_flashdata('warning','Username atau Password tidak cocok!');
-            redirect("home");
+			$this->session->set_flashdata('warning',' NPM atau Password tidak cocok!');
+            redirect("login");
 		}
 		
 	}
@@ -45,5 +43,5 @@ class Login extends CI_Controller {
         session_destroy();
 		redirect("login");
 	}
-	
 }
+	

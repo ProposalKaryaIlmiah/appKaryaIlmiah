@@ -22,12 +22,12 @@ class M_loginmhs extends CI_Model {
 	
 	function set_session(&$data){
 		$session = array(
-					'mahasiswa_npm' 		=> $data->mahasiswa_npm,
-					'mahasiswa_password' 	=> $data->mahasiswa_password,
-					'mahasiswa_nama' 		=> $data->mahasiswa_nama,
-					'mahasiswa_email' 		=> $data->mahasiswa_email,
-					'mahasiswa_kelas' 		=> $data->mahasiswa_kelas,
-					'logged_in'				=> TRUE
+					'mahasiswa_npm' 	 => $data->mahasiswa_npm,
+					'mahasiswa_password' => $data->mahasiswa_password,
+					'mahasiswa_nama' 	 => $data->mahasiswa_nama,
+					'mahasiswa_email' 	 => $data->mahasiswa_email,
+					'mahasiswa_kelas' 	 => $data->mahasiswa_kelas,
+					'logged_in'			 => TRUE
 					);
 		$this->session->set_userdata($session);
 	}
